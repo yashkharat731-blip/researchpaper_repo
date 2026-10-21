@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Layer Gradients -->
+    <linearGradient id="layerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.04" />
+    </linearGradient>
+    <linearGradient id="layerGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.04" />
+    </linearGradient>
+    <linearGradient id="layerGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0e7490" stop-opacity="0.04" />
+    </linearGradient>
+    <linearGradient id="layerGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.04" />
+    </linearGradient>
+
+    <!-- Card Gradients -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="cardGradHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Glow & Shadow Filters -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#a78bfa" />
+    </marker>
+    <marker id="arrowEmerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+  </defs>
+
+  <style>
+    .title-main { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 26px; font-weight: 800; fill: #ffffff; letter-spacing: 0.5px; }
+    .title-sub { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 14px; fill: #94a3b8; font-weight: 500; }
+    .layer-tag { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+    .card-title { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 14px; font-weight: 700; fill: #f8fafc; }
+    .card-subtitle { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 11.5px; fill: #94a3b8; line-height: 1.4; }
+    .card-badge { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 10px; font-weight: 700; fill: #38bdf8; }
+    .flow-line { fill: none; stroke: #38bdf8; stroke-width: 2; stroke-dasharray: 6 4; }
+    .flow-line-solid { fill: none; stroke: #475569; stroke-width: 1.5; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="16" />
+  <rect width="1196" height="856" x="2" y="2" fill="none" stroke="#1e293b" stroke-width="2" rx="16" />
+
+  <!-- Outer Header -->
+  <g transform="translate(60, 42)">
+    <rect x="-10" y="-12" width="48" height="48" rx="12" fill="#2563eb" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.5" />
+    <path d="M 6 12 L 22 4 L 38 12 L 22 20 Z M 10 18 L 10 26 C 10 26 15 30 22 30 C 29 30 34 26 34 26 L 34 18" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="54" y="16" class="title-main">PaperMind AI: System Architecture Block Diagram</text>
+    <text x="54" y="38" class="title-sub">Comprehensive multi-layer architecture for semantic research retrieval, critique, and interactive RAG synthesis</text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- LAYER 1: USER INTERACTION & PRESENTATION   -->
+  <!-- ========================================== -->
+  <g transform="translate(50, 115)">
+    <!-- Layer boundary -->
+    <rect width="1100" height="150" rx="14" fill="url(#layerGrad1)" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="1.5" />
+    <rect x="20" y="-12" width="290" height="24" rx="6" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1" />
+    <text x="32" y="4" class="layer-tag" fill="#93c5fd">1. UI &amp; Presentation Layer</text>
+
+    <!-- Component 1: Search & Topic Input -->
+    <g transform="translate(30, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" />
+      <circle cx="28" cy="28" r="14" fill="#3b82f6" fill-opacity="0.2" />
+      <path d="M 24 28 A 5 5 0 1 1 32 28 A 5 5 0 1 1 24 28 M 31 32 L 35 36" fill="none" stroke="#60a5fa" stroke-width="2" />
+      <text x="50" y="27" class="card-title">Research Query Engine</text>
+      <text x="50" y="42" class="card-badge">INPUT CONTROLLER</text>
+      <text x="18" y="68" class="card-subtitle">• Natural language query or topic</text>
+      <text x="18" y="86" class="card-subtitle">• Abstract text input box</text>
+      <text x="18" y="104" class="card-subtitle">• Search mode selector (ArXiv/CSV)</text>
+    </g>
+
+    <!-- Component 2: PDF Document Ingestion UI -->
+    <g transform="translate(300, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" />
+      <circle cx="28" cy="28" r="14" fill="#8b5cf6" fill-opacity="0.2" />
+      <path d="M 23 20 L 31 20 L 35 24 L 35 36 L 23 36 Z M 30 20 L 30 25 L 35 25" fill="none" stroke="#a78bfa" stroke-width="1.8" />
+      <text x="50" y="27" class="card-title">PDF Ingestion &amp; Chat UI</text>
+      <text x="50" y="42" class="card-badge" fill="#a78bfa">DOCUMENT INTERFACE</text>
+      <text x="18" y="68" class="card-subtitle">• Drag &amp; drop PDF paper upload</text>
+      <text x="18" y="86" class="card-subtitle">• Real-time conversational QA</text>
+      <text x="18" y="104" class="card-subtitle">• Multi-turn dialogue history</text>
+    </g>
+
+    <!-- Component 3: Visual Analytics & Metrics -->
+    <g transform="translate(570, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" />
+      <circle cx="28" cy="28" r="14" fill="#06b6d4" fill-opacity="0.2" />
+      <path d="M 22 36 L 22 30 M 28 36 L 28 22 M 34 36 L 34 26" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" />
+      <text x="50" y="27" class="card-title">Analytics &amp; Comparator</text>
+      <text x="50" y="42" class="card-badge" fill="#22d3ee">VISUALIZATION HUB</text>
+      <text x="18" y="68" class="card-subtitle">• Plotly semantic similarity charts</text>
+      <text x="18" y="86" class="card-subtitle">• Side-by-side paper matrix</text>
+      <text x="18" y="104" class="card-subtitle">• Category &amp; timeline breakdown</text>
+    </g>
+
+    <!-- Component 4: Citation & Export Hub -->
+    <g transform="translate(840, 24)" filter="url(#cardShadow)">
+      <rect width="230" height="106" rx="10" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" />
+      <circle cx="28" cy="28" r="14" fill="#10b981" fill-opacity="0.2" />
+      <path d="M 23 26 C 23 23 26 21 29 21 M 23 33 C 23 30 26 28 29 28" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" />
+      <text x="50" y="27" class="card-title">Citation &amp; Export Hub</text>
+      <text x="50" y="42" class="card-badge" fill="#34d399">ACADEMIC TOOLS</text>
+      <text x="18" y="68" class="card-subtitle">• BibTeX format generation</text>
+      <text x="18" y="86" class="card-subtitle">• APA citation builder</text>
+      <text x="18" y="104" class="card-subtitle">• One-click download &amp; clipboard</text>
+    </g>
+  </g>
+
+  <!-- Vertical Connectors L1 -> L2 -->
+  <line x1="202" y1="265" x2="202" y2="295" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="472" y1="265" x2="472" y2="295" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowPurple)" />
+  <line x1="742" y1="265" x2="742" y2="295" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="995" y1="265" x2="995" y2="295" stroke="#34d399" stroke-width="2" marker-end="url(#arrowEmerald)" />
+
+  <!-- ========================================== -->
+  <!-- LAYER 2: APPLICATION & ORCHESTRATION       -->
+  <!-- ========================================== -->
+  <g transform="translate(50, 295)">
+    <rect width="1100" height="150" rx="14" fill="url(#layerGrad2)" stroke="#8b5cf6" stroke-opacity="0.35" stroke-width="1.5" />
+    <rect x="20" y="-12" width="310" height="24" rx="6" fill="#4c1d95" stroke="#8b5cf6" stroke-width="1" />
+    <text x="32" y="4" class="layer-tag" fill="#c4b5fd">2. Application Orchestration Layer</text>
+
+    <!-- Component 1: PaperRecommender Module -->
+    <g transform="translate(30, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGradHighlight)" stroke="#6366f1" stroke-width="1.4" />
+      <text x="20" y="27" class="card-title">PaperRecommender</text>
+      <text x="20" y="43" class="card-badge" fill="#818cf8">recommender.py</text>
+      <text x="18" y="68" class="card-subtitle">• arXiv client coordination</text>
+      <text x="18" y="86" class="card-subtitle">• Top-K candidate indexing</text>
+      <text x="18" y="104" class="card-subtitle">• Similarity score calibration</text>
+    </g>
+
+    <!-- Component 2: Deep Paper Critic Agent -->
+    <g transform="translate(300, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">PaperAnalyzer Agent</text>
+      <text x="20" y="43" class="card-badge" fill="#a78bfa">paper_analyzer.py</text>
+      <text x="18" y="68" class="card-subtitle">• Multi-section academic critique</text>
+      <text x="18" y="86" class="card-subtitle">• Methodological weakness audit</text>
+      <text x="18" y="104" class="card-subtitle">• Structured JSON / Markdown parser</text>
+    </g>
+
+    <!-- Component 3: Conversational RAG Controller -->
+    <g transform="translate(570, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Conversational RAG Engine</text>
+      <text x="20" y="43" class="card-badge" fill="#22d3ee">tools.py (RAG QA)</text>
+      <text x="18" y="68" class="card-subtitle">• Contextual question answering</text>
+      <text x="18" y="86" class="card-subtitle">• Page-indexed source attribution</text>
+      <text x="18" y="104" class="card-subtitle">• Conversational memory buffer</text>
+    </g>
+
+    <!-- Component 4: Comparative Matrix Generator -->
+    <g transform="translate(840, 24)" filter="url(#cardShadow)">
+      <rect width="230" height="106" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Comparator &amp; Citations</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">tools.py / app.py</text>
+      <text x="18" y="68" class="card-subtitle">• Cross-paper parameter alignment</text>
+      <text x="18" y="86" class="card-subtitle">• BibTeX key hashing &amp; formatting</text>
+      <text x="18" y="104" class="card-subtitle">• APA 7th Edition style compiler</text>
+    </g>
+  </g>
+
+  <!-- Vertical Connectors L2 -> L3 -->
+  <line x1="202" y1="445" x2="202" y2="475" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="472" y1="445" x2="472" y2="475" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowPurple)" />
+  <line x1="742" y1="445" x2="742" y2="475" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="995" y1="445" x2="995" y2="475" stroke="#34d399" stroke-width="2" marker-end="url(#arrowEmerald)" />
+
+  <!-- ========================================== -->
+  <!-- LAYER 3: AI, VECTOR EMBEDDINGS & LLM       -->
+  <!-- ========================================== -->
+  <g transform="translate(50, 475)">
+    <rect width="1100" height="150" rx="14" fill="url(#layerGrad3)" stroke="#06b6d4" stroke-opacity="0.35" stroke-width="1.5" />
+    <rect x="20" y="-12" width="280" height="24" rx="6" fill="#155e75" stroke="#06b6d4" stroke-width="1" />
+    <text x="32" y="4" class="layer-tag" fill="#a5f3fc">3. AI &amp; Vector Processing Layer</text>
+
+    <!-- Component 1: Sentence Transformers -->
+    <g transform="translate(30, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#0891b2" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">SentenceTransformers</text>
+      <text x="20" y="43" class="card-badge" fill="#38bdf8">all-MiniLM-L6-v2</text>
+      <text x="18" y="68" class="card-subtitle">• 384-dimensional dense vectors</text>
+      <text x="18" y="86" class="card-subtitle">• Abstract &amp; query text encoding</text>
+      <text x="18" y="104" class="card-subtitle">• CPU-optimized fast inference</text>
+    </g>
+
+    <!-- Component 2: FAISS In-Memory Vector Store -->
+    <g transform="translate(300, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#0891b2" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">FAISS Vector Engine</text>
+      <text x="20" y="43" class="card-badge" fill="#22d3ee">faiss.IndexFlatIP</text>
+      <text x="18" y="68" class="card-subtitle">• L2 normalization for Cosine Sim</text>
+      <text x="18" y="86" class="card-subtitle">• Sub-millisecond top-k search</text>
+      <text x="18" y="104" class="card-subtitle">• Dynamic index rebuild per query</text>
+    </g>
+
+    <!-- Component 3: Google Gemini LLM -->
+    <g transform="translate(570, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="106" rx="10" fill="url(#cardGrad)" stroke="#0891b2" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Google Gemini 1.5 Flash</text>
+      <text x="20" y="43" class="card-badge" fill="#818cf8">ChatGoogleGenerativeAI</text>
+      <text x="18" y="68" class="card-subtitle">• 1-Sentence relevance explanations</text>
+      <text x="18" y="86" class="card-subtitle">• High-level synthesis &amp; critique</text>
+      <text x="18" y="104" class="card-subtitle">• Temperature=0.2 for strict facts</text>
+    </g>
+
+    <!-- Component 4: Recursive Document Splitter -->
+    <g transform="translate(840, 24)" filter="url(#cardShadow)">
+      <rect width="230" height="106" rx="10" fill="url(#cardGrad)" stroke="#0891b2" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Recursive Character Splitter</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">LangChain TextSplitters</text>
+      <text x="18" y="68" class="card-subtitle">• 1000 character chunk size</text>
+      <text x="18" y="86" class="card-subtitle">• 200 character sliding overlap</text>
+      <text x="18" y="104" class="card-subtitle">• Preserves page-level metadata</text>
+    </g>
+  </g>
+
+  <!-- Vertical Connectors L3 -> L4 -->
+  <line x1="202" y1="625" x2="202" y2="655" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="472" y1="625" x2="472" y2="655" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowPurple)" />
+  <line x1="742" y1="625" x2="742" y2="655" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="995" y1="625" x2="995" y2="655" stroke="#34d399" stroke-width="2" marker-end="url(#arrowEmerald)" />
+
+  <!-- ========================================== -->
+  <!-- LAYER 4: DATA, STORAGE & INGESTION         -->
+  <!-- ========================================== -->
+  <g transform="translate(50, 655)">
+    <rect width="1100" height="145" rx="14" fill="url(#layerGrad4)" stroke="#10b981" stroke-opacity="0.35" stroke-width="1.5" />
+    <rect x="20" y="-12" width="280" height="24" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+    <text x="32" y="4" class="layer-tag" fill="#6ee7b7">4. Ingestion &amp; Storage Layer</text>
+
+    <!-- Component 1: arXiv API Client -->
+    <g transform="translate(30, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="100" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Live arXiv API Client</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">arxiv.Client</text>
+      <text x="18" y="66" class="card-subtitle">• Real-time academic query fetch</text>
+      <text x="18" y="84" class="card-subtitle">• arXiv IDs, PDFs, metadata &amp; tags</text>
+    </g>
+
+    <!-- Component 2: Local Curated Corpus -->
+    <g transform="translate(300, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="100" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Curated Paper Dataset</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">data/research_papers.csv</text>
+      <text x="18" y="66" class="card-subtitle">• 50+ benchmark AI/ML papers</text>
+      <text x="18" y="84" class="card-subtitle">• Offline fast-boot capability</text>
+    </g>
+
+    <!-- Component 3: PyMuPDF Fast Document Reader -->
+    <g transform="translate(570, 24)" filter="url(#cardShadow)">
+      <rect width="245" height="100" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">PyMuPDF Document Reader</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">fitz / pymupdf</text>
+      <text x="18" y="66" class="card-subtitle">• High-speed page &amp; font parser</text>
+      <text x="18" y="84" class="card-subtitle">• Raw byte &amp; stream handling</text>
+    </g>
+
+    <!-- Component 4: Dynamic Session Cache -->
+    <g transform="translate(840, 24)" filter="url(#cardShadow)">
+      <rect width="230" height="100" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.2" />
+      <text x="20" y="27" class="card-title">Dynamic Session Cache</text>
+      <text x="20" y="43" class="card-badge" fill="#34d399">st.session_state</text>
+      <text x="18" y="66" class="card-subtitle">• Hot vectorstore persistence</text>
+      <text x="18" y="84" class="card-subtitle">• Multi-turn dialogue caching</text>
+    </g>
+  </g>
+
+  <!-- Bottom Attribution Footer -->
+  <g transform="translate(60, 835)">
+    <text x="0" y="0" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">PaperMind AI Engine • Vidyalankar Institute of Technology • Developed with Streamlit, LangChain, FAISS &amp; Gemini 1.5</text>
+  </g>
+</svg>

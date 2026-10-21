@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaperMind AI - Academic Research Project Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-canvas: #090d16;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-purple: #c084fc;
+      --accent-emerald: #34d399;
+      --accent-amber: #fbbf24;
+      
+      --gradient-brand: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --gradient-card-header: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(129, 140, 248, 0.05) 100%);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.18);
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: #ffffff;
+      --border-card: rgba(203, 213, 225, 0.8);
+      --border-highlight: rgba(37, 99, 235, 0.5);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(192, 132, 252, 0.07) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Floating Toolbar for Controls */
+    .top-toolbar {
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .toolbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent-blue);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-card);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Poster Container Layout */
+    .poster-container {
+      max-width: 1720px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 36px 40px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Poster Header */
+    .poster-header {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .institution-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 5px 14px;
+      border-radius: 20px;
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .poster-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.15;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .poster-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 1050px;
+      margin-bottom: 14px;
+    }
+
+    .author-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+    }
+
+    .author-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .header-pills {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .tag-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-card);
+      padding: 4px 12px;
+      border-radius: 8px;
+      color: var(--accent-emerald);
+    }
+
+    /* 3-Column Poster Grid */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.6fr 1.05fr;
+      gap: 28px;
+    }
+
+    .poster-column {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    /* Card Panels */
+    .panel {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.25s ease;
+    }
+
+    .panel:hover {
+      border-color: var(--border-highlight);
+    }
+
+    .panel-header {
+      background: var(--gradient-card-header);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-badge {
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .panel-body {
+      padding: 20px;
+    }
+
+    /* Typography & Content Helpers */
+    p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Math Formula Block */
+    .formula-box {
+      background: rgba(2, 6, 23, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: var(--accent-blue);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .formula-title {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .formula-math {
+      font-size: 1.05rem;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Center Diagram Showcase Tabs */
+    .diagram-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      background: rgba(2, 6, 23, 0.6);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-card);
+    }
+
+    .diagram-tab-btn {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .diagram-tab-btn.active {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .diagram-frame {
+      background: #0b0f19;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .diagram-frame img, .diagram-frame svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .diagram-caption {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* Tables */
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 8px;
+    }
+
+    .styled-table th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--accent-blue);
+      text-align: left;
+      padding: 10px 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .styled-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .styled-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    /* Stat Cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: rgba(2, 6, 23, 0.5);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent-emerald);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.74rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* Module Cards in Col 3 */
+    .module-card {
+      background: rgba(2, 6, 23, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .module-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .module-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .module-file {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-indigo);
+      background: rgba(99, 102, 241, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Tech Stack Badges */
+    .badge-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-pill {
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Footer Banner */
+    .poster-footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-card);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* ========================================================= */
+    /* PRINT STYLES FOR A0 / A1 / A2 / A3 / A4 PDF GENERATION   */
+    /* ========================================================= */
+    @media print {
+      @page {
+        size: A1 landscape;
+        margin: 10mm;
+      }
+
+      body {
+        background: #090d16 !important;
+        color: #f8fafc !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .top-toolbar {
+        display: none !important;
+      }
+
+      .poster-container {
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 10mm !important;
+        background: #090d16 !important;
+      }
+
+      .panel {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
+      }
+
+      .diagram-tabs {
+        display: none !important;
+      }
+
+      #blockDiagramContainer, #workflowDiagramContainer {
+        display: block !important;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .poster-grid {
+        grid-template-columns: 1fr;
+      }
+      .poster-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Floating Controls for User -->
+  <header class="top-toolbar">
+    <div class="toolbar-title">
+      <span>🔬</span>
+      <span>PaperMind AI Poster &amp; Diagrams</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-secondary" onclick="toggleTheme()">
+        <span id="themeIcon">🌙</span> Light / Dark
+      </button>
+      <a href="block_diagram.svg" download="PaperMind_Block_Diagram.svg" class="btn btn-secondary">
+        ⬇️ Block SVG
+      </a>
+      <a href="workflow_diagram.svg" download="PaperMind_Workflow_Diagram.svg" class="btn btn-secondary">
+        ⬇️ Workflow SVG
+      </a>
+      <button class="btn btn-primary" onclick="window.print()">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Poster Canvas -->
+  <main class="poster-container" id="posterArea">
+    
+    <!-- Poster Header -->
+    <header class="poster-header">
+      <div>
+        <div class="institution-badge">
+          🏛️ Vidyalankar Institute of Technology • Department of Computer Engineering
+        </div>
+        <h1 class="poster-title">PaperMind AI: Research Paper Recommendation &amp; Intelligence System</h1>
+        <p class="poster-subtitle">
+          An End-to-End Academic Research Retrieval and Critique Architecture combining <strong>Dense Semantic Vector Embeddings (all-MiniLM-L6-v2)</strong>, <strong>Sub-millisecond FAISS In-Memory Search</strong>, and <strong>Google Gemini LLM RAG Synthesis</strong>.
+        </p>
+        <div class="author-meta">
+          <span><strong>Developers:</strong> Yash &amp; Project Team</span>
+          <span>•</span>
+          <span><strong>Domain:</strong> Natural Language Processing, Information Retrieval, GenAI</span>
+          <span>•</span>
+          <span><strong>Academic Year:</strong> 2026</span>
+        </div>
+      </div>
+
+      <div class="header-pills">
+        <div class="tag-pill">FAISS Cosine Similarity (IndexFlatIP)</div>
+        <div class="tag-pill">SentenceTransformers (384-D)</div>
+        <div class="tag-pill">Google Gemini 1.5 Flash Agent</div>
+        <div class="tag-pill">PyMuPDF Document Parser</div>
+      </div>
+    </header>
+
+    <!-- Poster 3-Column Layout -->
+    <div class="poster-grid">
+
+      <!-- ======================================================== -->
+      <!-- COLUMN 1: MOTIVATION, OBJECTIVES & MATHEMATICAL CORE     -->
+      <!-- ======================================================== -->
+      <section class="poster-column">
+        
+        <!-- Panel 1: Problem Statement & Motivation -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>📌</span> Problem &amp; Motivation</h2>
+            <span class="panel-badge">OVERVIEW</span>
+          </div>
+          <div class="panel-body">
+            <p>
+              With over <strong>5 million research papers</strong> indexed across arXiv and IEEE, researchers suffer from acute information overload. Traditional keyword search engines (lexical BM25 / TF-IDF) fail on research queries due to:
+            </p>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-icon">✕</div>
+                <div><strong>Vocabulary Mismatch:</strong> Inability to map synonymous terms (e.g. <em>"quantization"</em> vs <em>"weight compression"</em>).</div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-icon">✕</div>
+                <div><strong>Absence of Explainability:</strong> Classical search tools provide no justification of <em>why</em> a paper was retrieved.</div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-icon">✕</div>
+                <div><strong>Disconnected Review Workflow:</strong> Users must switch between search, PDF readers, note-taking, and citation managers.</div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Panel 2: Key System Objectives -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>🎯</span> System Objectives</h2>
+            <span class="panel-badge">GOALS</span>
+          </div>
+          <div class="panel-body">
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div><strong>Semantic Literature Discovery:</strong> Retrieve top relevant papers from live arXiv and curated datasets based on semantic topic vectors.</div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div><strong>LLM-Powered Explainability:</strong> Synthesize concise 1-sentence explanations clarifying exactly why each paper aligns with the research intent.</div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div><strong>In-Depth Paper Critique Agent:</strong> Dissect uploaded PDFs into Executive Summaries, Methodologies, and Strengths/Weaknesses.</div>
+              </li>
+              <li class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div><strong>Conversational RAG Engine:</strong> Interactive multi-turn chat over paper content with verified page-level citations.</div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Panel 3: Mathematical Formulation -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>📐</span> Mathematical Foundations</h2>
+            <span class="panel-badge">ALGORITHMS</span>
+          </div>
+          <div class="panel-body">
+            <p>
+              Each candidate paper abstract $d_i$ and the user's research query $q$ are projected into a dense vector space $\mathbb{R}^{384}$ using the transformer encoder:
+            </p>
+            
+            <div class="formula-box">
+              <span class="formula-title">1. Dense Embedding Vectorization</span>
+              <div class="formula-math">\mathbf{v}_q = f_\theta(\text{query}), \quad \mathbf{v}_{d_i} = f_\theta(\text{abstract}_i)</div>
+            </div>
+
+            <p>
+              Both vectors are $L_2$-normalized such that $\|\mathbf{v}\|_2 = 1.0$. The semantic relevance is calculated using <strong>Cosine Similarity</strong> via FAISS Inner Product:
+            </p>
+
+            <div class="formula-box">
+              <span class="formula-title">2. Cosine Similarity via Normalized Dot Product</span>
+              <div class="formula-math">\text{Sim}(\mathbf{q}, \mathbf{d}_i) = \frac{\mathbf{v}_q \cdot \mathbf{v}_{d_i}}{\|\mathbf{v}_q\|_2 \|\mathbf{v}_{d_i}\|_2} = \sum_{k=1}^{384} \hat{q}_k \hat{d}_{i,k}</div>
+            </div>
+
+            <p>
+              Candidate ranking is performed by top-$k$ nearest neighbors:
+            </p>
+            <div class="formula-box">
+              <span class="formula-title">3. Top-K Neighbor Selection</span>
+              <div class="formula-math">\mathcal{R}^* = \operatorname{arg\,top-}k_{i} \; \text{Sim}(\mathbf{q}, \mathbf{d}_i)</div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- COLUMN 2: CENTERPIECE - ARCHITECTURE & WORKFLOW DIAGRAMS -->
+      <!-- ======================================================== -->
+      <section class="poster-column">
+        
+        <article class="panel" style="flex: 1;">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>📊</span> Visual System Architecture &amp; Workflow</h2>
+            <div class="panel-badge">CORE BLUEPRINT</div>
+          </div>
+          
+          <div class="panel-body">
+            
+            <!-- Tab switcher to inspect diagrams -->
+            <div class="diagram-tabs">
+              <button class="diagram-tab-btn active" id="btnTabBlock" onclick="switchDiagram('block')">
+                🏛️ System Block Diagram (4-Layer)
+              </button>
+              <button class="diagram-tab-btn" id="btnTabWorkflow" onclick="switchDiagram('workflow')">
+                ⚡ Process Workflow Pipeline (8-Step)
+              </button>
+              <button class="diagram-tab-btn" id="btnTabBoth" onclick="switchDiagram('both')">
+                📑 Show Both Side-by-Side
+              </button>
+            </div>
+
+            <!-- Block Diagram Container -->
+            <div id="blockDiagramContainer" class="diagram-frame">
+              <img src="block_diagram.svg" alt="System Architecture Block Diagram" id="imgBlockDiagram">
+              <div class="diagram-caption">
+                <span><strong>Figure 1:</strong> PaperMind AI Multi-Tier System Block Diagram</span>
+                <span>Layers: Presentation • Orchestration • Vector/AI • Data Store</span>
+              </div>
+            </div>
+
+            <!-- Workflow Diagram Container -->
+            <div id="workflowDiagramContainer" class="diagram-frame" style="display: none; margin-top: 16px;">
+              <img src="workflow_diagram.svg" alt="Workflow Process Diagram" id="imgWorkflowDiagram">
+              <div class="diagram-caption">
+                <span><strong>Figure 2:</strong> End-to-End Data Pipeline &amp; Algorithmic Flow</span>
+                <span>Query $\to$ all-MiniLM-L6-v2 $\to$ FAISS Index $\to$ Gemini Synthesis</span>
+              </div>
+            </div>
+
+            <!-- Key Architectural Highlights -->
+            <div style="margin-top: 20px;">
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 8px;">
+                💡 Architectural Highlights
+              </h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="background: rgba(2, 6, 23, 0.5); padding: 12px; border-radius: 10px; border: 1px solid var(--border-card);">
+                  <strong style="color: var(--accent-emerald);">Decoupled Vectorization:</strong>
+                  <p style="font-size: 0.84rem; margin-top: 4px; margin-bottom: 0;">
+                    Dense embeddings execute entirely locally on CPU via SentenceTransformers, eliminating latency and API costs for standard ranking queries.
+                  </p>
+                </div>
+                <div style="background: rgba(2, 6, 23, 0.5); padding: 12px; border-radius: 10px; border: 1px solid var(--border-card);">
+                  <strong style="color: var(--accent-purple);">Generative Explanations:</strong>
+                  <p style="font-size: 0.84rem; margin-top: 4px; margin-bottom: 0;">
+                    Google Gemini 1.5 Flash acts as a zero-shot critic to deliver contextual justifications without hallucination through low-temperature prompting ($T=0.2$).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- COLUMN 3: MODULES, EXPERIMENTAL BENCHMARKS & TECH STACK  -->
+      <!-- ======================================================== -->
+      <section class="poster-column">
+        
+        <!-- Panel 4: System Modules -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>🧩</span> Modular Implementation</h2>
+            <span class="panel-badge">CODEBASE</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="module-card">
+              <div class="module-header">
+                <span class="module-name">1. PaperRecommender Engine</span>
+                <span class="module-file">recommender.py</span>
+              </div>
+              <p style="font-size: 0.85rem; margin-bottom: 0;">
+                Connects to arXiv API, calculates 384-d vector embeddings, constructs in-memory FAISS indices, and coordinates similarity scoring.
+              </p>
+            </div>
+
+            <div class="module-card">
+              <div class="module-header">
+                <span class="module-name">2. Deep Paper Critic</span>
+                <span class="module-file">paper_analyzer.py</span>
+              </div>
+              <p style="font-size: 0.85rem; margin-bottom: 0;">
+                PyMuPDF stream parser &amp; Gemini agent performing rigorous 5-pillar academic evaluations (methodology, limitations, novelty).
+              </p>
+            </div>
+
+            <div class="module-card">
+              <div class="module-header">
+                <span class="module-name">3. Conversational RAG Engine</span>
+                <span class="module-file">tools.py</span>
+              </div>
+              <p style="font-size: 0.85rem; margin-bottom: 0;">
+                Document chunker (1000/200 tokens) with FAISS vector store backing multi-turn conversational document Q&amp;A.
+              </p>
+            </div>
+
+            <div class="module-card">
+              <div class="module-header">
+                <span class="module-name">4. Interactive Dashboard</span>
+                <span class="module-file">app.py</span>
+              </div>
+              <p style="font-size: 0.85rem; margin-bottom: 0;">
+                Streamlit application featuring glassmorphism design, Plotly similarity visualizers, and instant BibTeX/APA citation generators.
+              </p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Panel 5: Empirical Benchmarks & Performance -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>📈</span> Empirical Performance</h2>
+            <span class="panel-badge">EVALUATION</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-val">&lt; 15 ms</div>
+                <div class="stat-label">FAISS Query Time</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val">384-D</div>
+                <div class="stat-label">Vector Space</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val">100%</div>
+                <div class="stat-label">Offline Capability</div>
+              </div>
+            </div>
+
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Pipeline Component</th>
+                  <th>Framework / Engine</th>
+                  <th>Avg. Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PDF Text Extraction</td>
+                  <td>PyMuPDF (fitz)</td>
+                  <td>&lt; 0.18 s</td>
+                </tr>
+                <tr>
+                  <td>Vector Embedding (Batch 10)</td>
+                  <td>all-MiniLM-L6-v2</td>
+                  <td>&lt; 0.42 s</td>
+                </tr>
+                <tr>
+                  <td>Nearest Neighbor Search</td>
+                  <td>FAISS IndexFlatIP</td>
+                  <td>&lt; 0.015 s</td>
+                </tr>
+                <tr>
+                  <td>LLM RAG Explanation</td>
+                  <td>Gemini 1.5 Flash</td>
+                  <td>~ 1.15 s</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </article>
+
+        <!-- Panel 6: Technology Stack & Conclusion -->
+        <article class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title"><span>⚡</span> Technologies &amp; Future Scope</h2>
+            <span class="panel-badge">TECH STACK</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="badge-cloud" style="margin-bottom: 14px;">
+              <span class="tech-pill">🐍 Python 3.10+</span>
+              <span class="tech-pill">⚡ Streamlit</span>
+              <span class="tech-pill">🦜🔗 LangChain</span>
+              <span class="tech-pill">🧠 SentenceTransformers</span>
+              <span class="tech-pill">⚡ FAISS-CPU</span>
+              <span class="tech-pill">🤖 Google Gemini 1.5</span>
+              <span class="tech-pill">📑 PyMuPDF (fitz)</span>
+              <span class="tech-pill">🌐 arXiv API</span>
+              <span class="tech-pill">📊 Plotly</span>
+            </div>
+
+            <p style="font-size: 0.88rem;">
+              <strong>Future Enhancements:</strong> Multi-modal figure &amp; table extraction using Vision Transformers (ViT), cross-encoder re-ranking (BGE-Reranker), and collaborative citation network graph visualizers using PyVis.
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+    </div>
+
+    <!-- Poster Footer -->
+    <footer class="poster-footer">
+      <div>
+        <strong>PaperMind AI Research Intelligence Platform</strong> • Developed for Academic Project Exhibition &amp; Research Dissemination
+      </div>
+      <div>
+        Vidyalankar Institute of Technology, Mumbai • Open Source Academic Tool
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Tab switching for centerpiece diagrams
+    function switchDiagram(mode) {
+      const blockCont = document.getElementById('blockDiagramContainer');
+      const wfCont = document.getElementById('workflowDiagramContainer');
+      const btnBlock = document.getElementById('btnTabBlock');
+      const btnWf = document.getElementById('btnTabWorkflow');
+      const btnBoth = document.getElementById('btnTabBoth');
+
+      btnBlock.classList.remove('active');
+      btnWf.classList.remove('active');
+      btnBoth.classList.remove('active');
+
+      if (mode === 'block') {
+        blockCont.style.display = 'block';
+        wfCont.style.display = 'none';
+        btnBlock.classList.add('active');
+      } else if (mode === 'workflow') {
+        blockCont.style.display = 'none';
+        wfCont.style.display = 'block';
+        btnWf.classList.add('active');
+      } else if (mode === 'both') {
+        blockCont.style.display = 'block';
+        wfCont.style.display = 'block';
+        btnBoth.classList.add('active');
+      }
+    }
+
+    // Light / Dark Theme Toggle
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      document.getElementById('themeIcon').textContent = newTheme === 'light' ? '🌙' : '☀️';
+    }
+  </script>
+</body>
+</html>

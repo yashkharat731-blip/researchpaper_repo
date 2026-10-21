@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="wfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Step Gradients -->
+    <linearGradient id="stepGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <linearGradient id="stepGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <linearGradient id="stepGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="stepGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="stepGrad5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <!-- Box Card Grad -->
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="wfShadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowWf" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowWfGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+    <marker id="arrowWfPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#c084fc" />
+    </marker>
+  </defs>
+
+  <style>
+    .wf-title { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 26px; font-weight: 800; fill: #ffffff; }
+    .wf-sub { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 14px; fill: #94a3b8; font-weight: 500; }
+    .step-num { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 11px; font-weight: 800; fill: #ffffff; letter-spacing: 1px; }
+    .node-header { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 14.5px; font-weight: 700; fill: #f8fafc; }
+    .node-pill { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 10px; font-weight: 700; }
+    .node-text { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 11.5px; fill: #94a3b8; line-height: 1.4; }
+    .node-code { font-family: 'Fira Code', 'Consolas', monospace; font-size: 10.5px; fill: #38bdf8; }
+    .conn-label { font-family: 'Segoe UI', -apple-system, Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #64748b; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="url(#wfBg)" rx="16" />
+  <rect width="1196" height="896" x="2" y="2" fill="none" stroke="#1e293b" stroke-width="2" rx="16" />
+
+  <!-- Main Header -->
+  <g transform="translate(60, 42)">
+    <rect x="-10" y="-12" width="48" height="48" rx="12" fill="#0891b2" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1.5" />
+    <path d="M 6 12 L 20 12 L 24 24 L 38 24 M 22 24 L 28 20 M 22 24 L 28 28" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="54" y="16" class="wf-title">PaperMind AI: End-to-End Workflow Process Pipeline</text>
+    <text x="54" y="38" class="wf-sub">Step-by-step data transformation, dense embedding vectorization, cosine similarity ranking, and Gemini reasoning</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- ROW 1: INPUT & PRE-PROCESSING (X: 60 -> 1140)                   -->
+  <!-- ============================================================== -->
+
+  <!-- STEP 1: User Input -->
+  <g transform="translate(60, 110)" filter="url(#wfShadow)">
+    <rect width="320" height="150" rx="12" fill="url(#boxGrad)" stroke="#3b82f6" stroke-width="1.4" />
+    <!-- Step Badge -->
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad1)" />
+    <text x="31" y="31" class="step-num">STEP 01</text>
+    <text x="105" y="32" class="node-header">User Research Query</text>
+    
+    <text x="20" y="65" class="node-text">• Natural Language Topic / Research Query</text>
+    <text x="20" y="85" class="node-text">• Reference Paper Abstract (up to 45k chars)</text>
+    <text x="20" y="105" class="node-text">• Research Focus Specification (optional)</text>
+    <text x="20" y="125" class="node-text">• Search Mode: arXiv Live vs Local Curated</text>
+
+    <rect x="20" y="132" width="280" height="2" fill="#1e3a8a" />
+  </g>
+
+  <!-- Arrow Step 1 -> Step 2 -->
+  <path d="M 380 185 L 435 185" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowWf)" />
+  <text x="385" y="175" class="conn-label">Query text</text>
+
+  <!-- STEP 2: Candidate Ingestion / arXiv Query -->
+  <g transform="translate(440, 110)" filter="url(#wfShadow)">
+    <rect width="330" height="150" rx="12" fill="url(#boxGrad)" stroke="#8b5cf6" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad2)" />
+    <text x="31" y="31" class="step-num">STEP 02</text>
+    <text x="105" y="32" class="node-header">Candidate Pool Retrieval</text>
+    
+    <text x="20" y="65" class="node-text">• arXiv API Client (<tspan class="node-code">arxiv.Client</tspan>) fetch</text>
+    <text x="20" y="85" class="node-text">• Truncates &amp; sanitizes query to 300 chars</text>
+    <text x="20" y="105" class="node-text">• Fetches Top-10 / Top-20 Candidate Papers</text>
+    <text x="20" y="125" class="node-text">• Extracts Titles, Abstracts, Authors, Categories</text>
+    <rect x="20" y="132" width="290" height="2" fill="#4c1d95" />
+  </g>
+
+  <!-- Arrow Step 2 -> Step 3 -->
+  <path d="M 770 185 L 825 185" fill="none" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowWfPurple)" />
+  <text x="775" y="175" class="conn-label">Candidates</text>
+
+  <!-- STEP 3: Parallel PDF Parser (Branch) -->
+  <g transform="translate(830, 110)" filter="url(#wfShadow)">
+    <rect width="310" height="150" rx="12" fill="url(#boxGrad)" stroke="#06b6d4" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad3)" />
+    <text x="31" y="31" class="step-num">ALT PATH</text>
+    <text x="105" y="32" class="node-header">PyMuPDF Document Parser</text>
+    
+    <text x="20" y="65" class="node-text">• Extracts full text from uploaded PDF bytes</text>
+    <text x="20" y="85" class="node-text">• Extracts page boundaries &amp; metadata</text>
+    <text x="20" y="105" class="node-text">• Chunks: 1000 size, 200 overlap tokens</text>
+    <text x="20" y="125" class="node-text">• Powers Deep Critique &amp; RAG Chat engine</text>
+    <rect x="20" y="132" width="270" height="2" fill="#155e75" />
+  </g>
+
+  <!-- Down & Left Arrow From Step 2 to Step 4 -->
+  <path d="M 605 260 L 605 315 L 1020 315 L 1020 365" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4" />
+  <path d="M 605 260 L 605 315 L 220 315 L 220 365" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowWf)" />
+  <text x="230" y="335" class="conn-label">Abstract Text Corpus</text>
+
+  <!-- ============================================================== -->
+  <!-- ROW 2: VECTOR EMBEDDINGS & FAISS INDEXING (X: 60 -> 1140)      -->
+  <!-- ============================================================== -->
+
+  <!-- STEP 4: Sentence Transformers Vectorization -->
+  <g transform="translate(60, 370)" filter="url(#wfShadow)">
+    <rect width="320" height="160" rx="12" fill="url(#boxGrad)" stroke="#38bdf8" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad3)" />
+    <text x="31" y="31" class="step-num">STEP 03</text>
+    <text x="105" y="32" class="node-header">Dense Vector Encoding</text>
+    
+    <text x="20" y="65" class="node-text">• Model: <tspan class="node-code">all-MiniLM-L6-v2</tspan> (Transformer)</text>
+    <text x="20" y="85" class="node-text">• Encodes candidate abstracts to 384-d vectors</text>
+    <text x="20" y="105" class="node-text">• Encodes user search query into 384-d vector</text>
+    <text x="20" y="125" class="node-text">• Applies L2 Normalization: <tspan class="node-code">faiss.normalize_L2()</tspan></text>
+    <text x="20" y="145" class="node-text">• Transforms Euclidean inner product to Cosine</text>
+  </g>
+
+  <!-- Arrow Step 4 -> Step 5 -->
+  <path d="M 380 450 L 435 450" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowWf)" />
+  <text x="385" y="440" class="conn-label">384-d float32</text>
+
+  <!-- STEP 5: FAISS Vector Space Cosine Similarity Search -->
+  <g transform="translate(440, 370)" filter="url(#wfShadow)">
+    <rect width="330" height="160" rx="12" fill="url(#boxGrad)" stroke="#10b981" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad4)" />
+    <text x="31" y="31" class="step-num">STEP 04</text>
+    <text x="105" y="32" class="node-header">FAISS In-Memory Search</text>
+    
+    <text x="20" y="65" class="node-text">• Vector Index: <tspan class="node-code">faiss.IndexFlatIP(d=384)</tspan></text>
+    <text x="20" y="85" class="node-text">• Calculates dot products: <tspan class="node-code">S = q · d_i</tspan></text>
+    <text x="20" y="105" class="node-text">• Instant sub-millisecond nearest neighbors</text>
+    <text x="20" y="125" class="node-text">• Sorts &amp; filters Top-N papers (e.g. Top 5)</text>
+    <text x="20" y="145" class="node-text">• Normalizes score to 0–100% similarity</text>
+  </g>
+
+  <!-- Arrow Step 5 -> Step 6 -->
+  <path d="M 770 450 L 825 450" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrowWfGreen)" />
+  <text x="772" y="440" class="conn-label">Top-K Ranked</text>
+
+  <!-- STEP 6: Multi-Criteria Relevance Filtering -->
+  <g transform="translate(830, 370)" filter="url(#wfShadow)">
+    <rect width="310" height="160" rx="12" fill="url(#boxGrad)" stroke="#f59e0b" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad5)" />
+    <text x="31" y="31" class="step-num">STEP 05</text>
+    <text x="105" y="32" class="node-header">Ranking &amp; Augmentation</text>
+    
+    <text x="20" y="65" class="node-text">• Calibrates similarity metric percentage</text>
+    <text x="20" y="85" class="node-text">• Assembles candidate context packet</text>
+    <text x="20" y="105" class="node-text">• Enriches with arXiv metadata &amp; direct PDF links</text>
+    <text x="20" y="125" class="node-text">• Generates key takeaway snippets</text>
+    <text x="20" y="145" class="node-text">• Prepares payload for LLM explanation agent</text>
+  </g>
+
+  <!-- Down & Left Arrow From Step 6 to Step 7 -->
+  <path d="M 985 530 L 985 585 L 220 585 L 220 635" fill="none" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrowWfGreen)" />
+  <text x="230" y="605" class="conn-label">Ranked Candidates + Query Context</text>
+
+  <!-- ============================================================== -->
+  <!-- ROW 3: GEMINI REASONING, OUTPUT, AND CITATIONS (X: 60 -> 1140) -->
+  <!-- ============================================================== -->
+
+  <!-- STEP 7: Google Gemini Explanation Agent -->
+  <g transform="translate(60, 640)" filter="url(#wfShadow)">
+    <rect width="320" height="160" rx="12" fill="url(#boxGrad)" stroke="#8b5cf6" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad2)" />
+    <text x="31" y="31" class="step-num">STEP 06</text>
+    <text x="105" y="32" class="node-header">Gemini Explanation Synthesis</text>
+    
+    <text x="20" y="65" class="node-text">• LLM: <tspan class="node-code">gemini-1.5-flash</tspan> (Temp: 0.2)</text>
+    <text x="20" y="85" class="node-text">• Ingests User Topic + Paper Title + Abstract</text>
+    <text x="20" y="105" class="node-text">• Synthesizes precise 1-sentence relevance justification</text>
+    <text x="20" y="125" class="node-text">• Fallback to analytical template if API offline</text>
+    <text x="20" y="145" class="node-text">• Prevents hallucinations with strict prompt bound</text>
+  </g>
+
+  <!-- Arrow Step 7 -> Step 8 -->
+  <path d="M 380 720 L 435 720" fill="none" stroke="#c084fc" stroke-width="2.5" marker-end="url(#arrowWfPurple)" />
+  <text x="382" y="710" class="conn-label">Justifications</text>
+
+  <!-- STEP 8: Academic Citation Generator -->
+  <g transform="translate(440, 640)" filter="url(#wfShadow)">
+    <rect width="330" height="160" rx="12" fill="url(#boxGrad)" stroke="#38bdf8" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad3)" />
+    <text x="31" y="31" class="step-num">STEP 07</text>
+    <text x="105" y="32" class="node-header">Automated Citation Engine</text>
+    
+    <text x="20" y="65" class="node-text">• Generates standard academic citations:</text>
+    <text x="20" y="85" class="node-text">• <tspan class="node-code">BibTeX format</tspan> (@article entry with arXiv ID)</text>
+    <text x="20" y="105" class="node-text">• <tspan class="node-code">APA 7th Edition</tspan> reference entry</text>
+    <text x="20" y="125" class="node-text">• One-click clipboard copy integration</text>
+    <text x="20" y="145" class="node-text">• Direct link to arXiv abstract &amp; PDF download</text>
+  </g>
+
+  <!-- Arrow Step 8 -> Step 9 -->
+  <path d="M 770 720 L 825 720" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowWf)" />
+  <text x="775" y="710" class="conn-label">UI Payload</text>
+
+  <!-- STEP 9: Interactive Streamlit UI & Plotly Visualizations -->
+  <g transform="translate(830, 640)" filter="url(#wfShadow)">
+    <rect width="310" height="160" rx="12" fill="url(#boxGrad)" stroke="#10b981" stroke-width="1.4" />
+    <rect x="18" y="16" width="75" height="22" rx="11" fill="url(#stepGrad4)" />
+    <text x="31" y="31" class="step-num">STEP 08</text>
+    <text x="105" y="32" class="node-header">Streamlit Presentation UI</text>
+    
+    <text x="20" y="65" class="node-text">• Glassmorphic interactive paper recommendation cards</text>
+    <text x="20" y="85" class="node-text">• Plotly bar charts of similarity distributions</text>
+    <text x="20" y="105" class="node-text">• Side-by-side comparative feature matrix</text>
+    <text x="20" y="125" class="node-text">• Interactive RAG conversational QA tab</text>
+    <text x="20" y="145" class="node-text">• Export dataset &amp; bibliography files</text>
+  </g>
+
+  <!-- Footer Info -->
+  <g transform="translate(60, 850)">
+    <text x="0" y="0" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">Workflow Pipeline: Input Acquisition → Dense Vector Embeddings (MiniLM) → Cosine Similarity (FAISS) → LLM Synthesis (Gemini) → Academic Delivery</text>
+  </g>
+</svg>
